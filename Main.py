@@ -15,14 +15,20 @@ with open('Data.json') as f:
 
 with open('Subjects.json') as f:
     subjects = json.load(f)
-my_id = YOUR_ID
+my_ids = [MY_ID]
 
 def daily(context):
-    context.bot.send_message(chat_id=my_id, text="Timely Reminder for " + subjects[context.job.name]['name'])
-    context.bot.send_message(chat_id=my_id, text="Link: " + subjects[context.job.name]['link'])
+    for my_id in my_ids:
+        context.bot.send_message(chat_id=my_id, text="Timely Reminder for " + subjects[context.job.name]['name'])
+        context.bot.send_message(chat_id=my_id, text="Link: " + subjects[context.job.name]['link'])
 
 def start(update,context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Hello Master!")
+    if update.effective_chat.id in my_ids:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="You're already in the bot's list")
+        print(update.effective_chat.id)
+    else:
+        my_ids.append(update.effective_chat.id)
+        context.bot.send_message(chat_id=update.effective_chat.id, text="You've been added to the list. The bot will remind you before every class")
 
 dispatcher.add_handler(CommandHandler('start', start))
 weekday = 1
