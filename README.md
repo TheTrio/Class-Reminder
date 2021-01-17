@@ -44,3 +44,10 @@ Both the directories should be in the same directory as `Main.py`
 
 1. [python-telegram-bot](https://python-telegram-bot.org/)
 4. [pytz](https://pypi.org/project/pytz/)
+
+## Known Issues
+
+Here are some of the issues we're aware of, and are working to resolve :-
+
+1. Time should be specified in ISO Time Format for better usability
+2. A single Bot should function for multiple users, storing each users Schedule. Presently each user has to create their own instance of the bot. 
