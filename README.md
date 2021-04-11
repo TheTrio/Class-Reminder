@@ -21,7 +21,7 @@ The `Schedule.json` should be in the following format
   ...
 }
 ```
-Note: `StartTime` and `EndTime` are supposed to be in the ISO Time format, ie `[hh]:[mm]:[ss]` where 
+Note: `StartTime` and `EndTime` are supposed to be in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Times) format, ie `[hh]:[mm]:[ss]` where 
 1. `[hh]` refers to a zero-padded hour between 00 and 23.
 2. `[mm]` refers to a zero-padded minute between 00 and 59.
 3. `[ss]` refers to a zero-padded second between 00 and 60 (where 60 is only used to denote an added leap second).
